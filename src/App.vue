@@ -2,9 +2,16 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/location">Location</router-link> |
+        <router-link to="/menu/meat-dishes">Menu</router-link> |
+        <router-link to="/offers">Offers</router-link>
     </div>
-    <router-view />
+
+      <transition name="slide">
+        <router-view />
+      </transition>
+
+      <footer></footer>
   </div>
 </template>
 
@@ -29,4 +36,30 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+section {
+    height: 100vh;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+    transition: 0.5s;
+}
+
+.slide-enter {
+    transform: translate(100%, 0);
+}
+
+.slide-leave-to {
+    transform: translate(-100%, 0);
+}
+
+section {
+    font-size: 20px;
+    position: absolute;
+    width: 100%;
+    top: 78px;
+    left: 0;
+}
+
 </style>
